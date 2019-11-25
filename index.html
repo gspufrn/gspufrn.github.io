@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./css/main.css">
+		<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+		<script src="https://frogcat.github.io/canvas-arrow/canvas-arrow.js"></script>
+		<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+		<script src="https://unpkg.com/jspdf-autotable"></script>
+		<title>PRO1404 - GESTÃO DE SISTEMAS DE PRODUÇÃO III</title>
+	</head>
+	<body style="height:120vh" id='body'>
+		<div class="android-header mdl-layout__header mdl-layout__header--waterfall" style="background-color: white;position:fixed;">
+        <div class="mdl-layout__header-row">
+          	<span class="android-title mdl-layout-title">
+           		<img src="./static/lgo.png" height="100%" width="20%">
+          	</span>
+          	<label  style="color:black" >
+              	UFRN - Gestão de Sistemas de Produção III
+    		</label>
+        </div>
+      </div>
+		<table id="calculo" style="padding-bottom: 3vh;padding-top: 15vh ">
+			<tr>
+				<td style="width:90%;">
+					<canvas id="canvas" style=" border:0px solid #fff;background-color: #fff;width: 100%;height: 80vh">
+						Seu navegador não suporta o canvas
+					</canvas>
+				</td>
+				<td style="width:10%;padding:5px;color:#fff">
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp" style="background-color: #fff">
+					  <div class="mdl-card__title" style="color:#302f2f">
+					    <h3 class="mdl-card__title-text">Cálculo do Tempo Takt</h3>
+					  </div>
+					  <div class="mdl-card__supporting-text">
+			    		<form action="#foco" style='width:100%;margin:10px'>
+				  			<div class="mdl-textfield mdl-js-textfield" style="color:#302f2f">
+								<input class="mdl-textfield__input" type='number' id='horas' step='0.1' value=''/>
+								<label class="mdl-textfield__label" for="horas">Horas Disponíveis</label>
+							</div>
+				  			<div class="mdl-textfield mdl-js-textfield" style="color:#302f2f">
+								<input class="mdl-textfield__input" type='number' id='pecas' step='0.1' value=''/>
+								<label class="mdl-textfield__label" for="pecas">Unidades a serem produzidas</label>
+							</div>
+							<button id="calcular" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="background-color:#302f2f">
+							  Calcular
+							</button>
+						</form>
+					  </div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div style="margin:30px" id="foco">
+		  	<table id='comsoal' class="mdl-data-table mdl-js-data-table" style="display:none">
+		  	    <tr>
+			      <th class="mdl-data-table__cell--non-numeric">Elemento</th>
+			      <th>Predecessores</th>
+			      <th>Tempo da Atividade</th>
+			    </tr>
+			</table>
+			<button id="calcular_comsoal" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="background-color:#302f2f;display:none">
+			Utilizar o Comsoal
+			</button>
+		</div>
+		<script src="./js/canvas.js"></script>
+	</body>
+</html>
